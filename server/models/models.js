@@ -67,7 +67,7 @@ Device.belongsTo(Brand)
 Device.hasMany(Rating)
 Rating.belongsTo(Device)
 
-Device.hasOne(Basket_Device)
+Device.hasOne(Basket_Device, {as: 'info'})
 Basket_Device.belongsTo(Device)
 
 Device.hasMany(DeviceInfo)
