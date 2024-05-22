@@ -57,7 +57,7 @@ class DeviceController {
         const {id} = req.params
         const device = await Device.findOne({
             where: {id},
-            include: [{model, DeviceInfo, as: 'info'}]
+            include: [{model: DeviceInfo, as: 'info'}]
         })
 
         return res.json(device)
