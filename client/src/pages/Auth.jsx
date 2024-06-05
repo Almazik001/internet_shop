@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, Container, Button, Row } from 'react-bootstrap';
 import { Form } from 'react-bootstrap';
-import { NavLink, useLocation } from 'react-router-dom';
-import { LOGIN_ROUTE, REGISTRATION_ROUTE } from '../utils/consts';
+import { NavLink, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from '../utils/consts';
 
 
 const Auth = () => {
-
+    const navigate = useNavigate()
     const location = useLocation()
     const isLogin = location.pathname === LOGIN_ROUTE
     console.log(location)
@@ -29,7 +29,11 @@ const Auth = () => {
                     />
 
                     <div className='d-flex flex-column mt-3'>
-                        <Button className='mt-2 align-self-center mt-1 mb-5' variant={'outline-success'}>
+                        <Button 
+                            className='mt-2 align-self-center mt-1 mb-5' 
+                            variant={'outline-success'}
+                            onClick={() => navigate(SHOP_ROUTE)}
+                        >
                             {isLogin ? 'Войти' : 'Регистрация'}
                         </Button> 
 
